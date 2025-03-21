@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Ruler, PencilRuler, Building2, Compass, CheckCircle2, X, ArrowRight } from 'lucide-react';
+import { Ruler, PencilRuler, Building2, Compass, CheckCircle2, X, ArrowRight, Award, Building } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
 import f1 from '../assets/images/f1.jpg';
@@ -331,6 +331,101 @@ Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
     }
   }, [language]);
 
+  const detailedServices = {
+    el: [
+      {
+        icon: <Ruler className="w-5 h-5" />,
+        text: 'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη - επίβλεψη'
+      },
+      {
+        icon: <Award className="w-5 h-5" />,
+        text: 'Πιστοποημένη εκτιμήτρια ακινήτων - REV- Expert Valuer in Property Tegova, αρ μητρώου 552 του Υπ. Οικονομικών.'
+      },
+      {
+        icon: <Building className="w-5 h-5" />,
+        text: 'Έκδοση πλήρους φακέλου οικοδομικής άδειας (στατικά, η/μ μέλέτη, ΚΕΝΑΚ, καύσιμο αέριο, πυροπραστασία, φορολογικά, προυπολογισμός έργου κτλ.) και επίβλεψη του έργου.'
+      },
+      {
+        icon: <Building2 className="w-5 h-5" />,
+        text: 'Ενεργειακος Επιθεωρητης Α\'ταξης.'
+      },
+      {
+        icon: <CheckCircle2 className="w-5 h-5" />,
+        text: 'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου (συνάθροιση κοινού, παρασκευστήρια κτλ.) με πλήρη φάκελο μελετών που απαιτούνται.'
+      },
+      {
+        icon: <Building2 className="w-5 h-5" />,
+        text: 'Ρυθμίσεις αυθαιρέτων, βεβαίωση νομιμότητας για μεταβιβάσεις κ.τ.λ.'
+      },
+      {
+        icon: <Building className="w-5 h-5" />,
+        text: 'Ενεργειακή επιθεώρηση - ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον" και σύνταξη πλήρους φακέλου.'
+      },
+      {
+        icon: <CheckCircle2 className="w-5 h-5" />,
+        text: 'Ελεγκτής δόμησης, ιδιότητα που επιτρέπει στον κύριο του έργου να είναι σε θέση να γνωρίζει τον τρόπο και τη διαδικασία ελέγχου.'
+      },
+      {
+        icon: <Building2 className="w-5 h-5" />,
+        text: 'Επιθεωρητης κτιριολογικων στο μητρωο επιθεωρητων του ΕΟΠΠΕΠ για κεντρα φροντιστηρια μεσης εκπαιδευσης, ξενων γλωσσων, κεντρα δια βιου μαθησης επιπεδου Ι και ΙΙ.'
+      },
+      {
+        icon: <Ruler className="w-5 h-5" />,
+        text: 'Ανακαινίσεις (σχεδιασμός και κατασκευή έργου) διαμερισμάτων και καταστημάτων, με εξασφάλιση προνομιακών τιμών στη κατασκευή.'
+      },
+      {
+        icon: <Building className="w-5 h-5" />,
+        text: 'Διακόσμηση εσωτερικών χώρων, φωτορεαλιστική απεικόνιση, σχεδιασμός επίπλων, φωτορεαλισμός και virtual video.'
+      }
+    ],
+    en: [
+      {
+        icon: <Ruler className="w-5 h-5" />,
+        text: 'Architectural design and architectural study - supervision'
+      },
+      {
+        icon: <Award className="w-5 h-5" />,
+        text: 'Certified property valuer - REV- Expert Valuer in Property Tegova, registry number 552 of the Ministry of Finance.'
+      },
+      {
+        icon: <Building className="w-5 h-5" />,
+        text: 'Issuance of complete building permit file (structural, E/M study, KENAK, fuel gas, fire protection, tax, project budget etc.) and project supervision.'
+      },
+      {
+        icon: <Building2 className="w-5 h-5" />,
+        text: 'Class A Energy Inspector.'
+      },
+      {
+        icon: <CheckCircle2 className="w-5 h-5" />,
+        text: 'Issuance of health-related operating licenses of all types (public gathering, preparation areas etc.) with complete study files as required.'
+      },
+      {
+        icon: <Building2 className="w-5 h-5" />,
+        text: 'Unauthorized building settlements, legality certificates for transfers etc.'
+      },
+      {
+        icon: <Building className="w-5 h-5" />,
+        text: 'Energy inspection - inclusion in the "Energy Saving at Home" program and preparation of complete file.'
+      },
+      {
+        icon: <CheckCircle2 className="w-5 h-5" />,
+        text: 'Building inspector, a qualification that allows the project owner to understand the method and process of inspection.'
+      },
+      {
+        icon: <Building2 className="w-5 h-5" />,
+        text: 'Building inspector in EOPPEP\'s registry for secondary education tutoring centers, foreign languages, lifelong learning centers level I and II.'
+      },
+      {
+        icon: <Ruler className="w-5 h-5" />,
+        text: 'Renovations (design and construction) of apartments and stores, ensuring preferential construction prices.'
+      },
+      {
+        icon: <Building className="w-5 h-5" />,
+        text: 'Interior decoration, photorealistic rendering, furniture design, photorealism and virtual video.'
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -412,6 +507,64 @@ Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Detailed Services Section */}
+      <div className="bg-gradient-to-br from-gray-50 to-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-7xl mx-auto"
+          >
+            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+              {language === 'el' ? 'Αναλυτικές Υπηρεσίες' : 'Detailed Services'}
+            </h2>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-xl p-10 hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {detailedServices[language].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start space-x-4 p-6 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-gray-100 hover:border-blue-200"
+                  >
+                    <div className="text-blue-600 p-3 bg-blue-50 rounded-lg">
+                      {item.icon}
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-sm">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-10 text-center"
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              >
+                {language === 'el' ? 'Επικοινωνήστε μαζί μας' : 'Contact Us'}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>

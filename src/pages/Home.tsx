@@ -1,614 +1,333 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Calculator, Building, Ruler, FileText, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, X } from 'lucide-react';
-import { motion, useScroll, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, ArrowRight, X, Building2, Ruler, Building, Award, CheckCircle2, Users, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
-import t2 from '../assets/images/t2.jpg';
-import architecturalDesign from '../assets/images/architectural-design.jpg';
-import img77 from '../assets/images/77.jpg';
-import imgRt5 from '../assets/images/rt5.jpg';
 import t1 from '../assets/images/t1.jpg';
 import t3 from '../assets/images/t3.jpg';
 import t4 from '../assets/images/t4.jpg';
 import t5 from '../assets/images/t5.jpg';
 import t6 from '../assets/images/t6.jpg';
 import t7 from '../assets/images/t7.jpg';
-import t8 from '../assets/images/t8.jpg';
-import t9 from '../assets/images/t9.jpg';
-import t10 from '../assets/images/t10.jpg';
 import q1 from '../assets/images/q1.jpg';
-import q2 from '../assets/images/q2.jpg';
-import q3 from '../assets/images/q3.jpg';
-import q4 from '../assets/images/q4.jpg';
-import q5 from '../assets/images/q5.jpg';
-import q6 from '../assets/images/q6.jpg';
-import q7 from '../assets/images/q7.jpg';
-import q8 from '../assets/images/q8.jpg';
-import q9 from '../assets/images/q9.jpg';
-import r1 from '../assets/images/r1.jpg';
-import r2 from '../assets/images/r2.jpg';
-import r3 from '../assets/images/r3.jpg';
-import r4 from '../assets/images/r4.jpg';
-import r5 from '../assets/images/r5.jpg';
-import r6 from '../assets/images/r6.jpg';
-import r7 from '../assets/images/r7.jpg';
-import r8 from '../assets/images/r8.jpg';
-import r9 from '../assets/images/r9.jpg';
-import r10 from '../assets/images/r10.jpg';
-import r11 from '../assets/images/r11.jpg';
-import d1 from '../assets/images/d1.jpg';
-import d2 from '../assets/images/d2.jpg';
-import d4 from '../assets/images/d4.jpg';
-import d5 from '../assets/images/d5.jpg';
-import d6 from '../assets/images/d6.jpg';
-import d7 from '../assets/images/d7.jpg';
-import d8 from '../assets/images/d8.jpg';
-import d9 from '../assets/images/d9.jpg';
-import as from '../assets/images/as.jpg';
-import to from '../assets/images/to.png';
-import to1 from '../assets/images/to1.jpg';
+import full5 from '../assets/images/full5.jpg';
+import qq5 from '../assets/images/qq5.jpg';
+import tt1 from '../assets/images/tt1.jpg';
+import ee3 from '../assets/images/ee3.jpg';
+import house2 from '../assets/images/house2.jpg';
+import pou3 from '../assets/images/pou3.jpg';
+import con2 from '../assets/images/con2.jpg';
+import ik4 from '../assets/images/ik4.jpg';
+import aa1 from '../assets/images/aa1.jpg';
+import qq3 from '../assets/images/qq3.jpg';
+import lop from '../assets/images/lop.png';
+import lop2 from '../assets/images/lop2.jpg';
+import ad from '../assets/images/ad.jpg';
+import af from '../assets/images/af.jpg';
+import ag from '../assets/images/ag.jpg';
+import ah from '../assets/images/ah.jpg';
+import aj from '../assets/images/aj.jpg';
+import ak from '../assets/images/ak.jpg';
+import al from '../assets/images/al.jpg';
+import as1 from '../assets/images/as.jpg';
+import m from '../assets/images/m.jpg';
+import n from '../assets/images/n.jpg';
+import b from '../assets/images/b.jpg';
+import v from '../assets/images/v.jpg';
+import c from '../assets/images/c.jpg';
+import x from '../assets/images/x.jpg';
+import z from '../assets/images/z.jpg';
 import f1 from '../assets/images/f1.jpg';
 import f2 from '../assets/images/f2.jpg';
 import f3 from '../assets/images/f3.jpg';
-import con1 from '../assets/images/con1.jpg';
-import con2 from '../assets/images/con2.jpg';
-import con3 from '../assets/images/con3.jpg';
-import con4 from '../assets/images/con4.jpg';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import full7 from '../assets/images/full7.jpg';
-import spiti4 from '../assets/images/spiti4.jpg';
+import to from '../assets/images/to.png';
+import to1 from '../assets/images/to1.jpg';
+import t2 from '../assets/images/t2.jpg';
+import t8 from '../assets/images/t8.jpg';
+import t9 from '../assets/images/t9.jpg';
+import t10 from '../assets/images/t10.jpg';
+import VelvetSkins2 from '../assets/images/VelvetSkins2.jpg';
+import VelvetSkins3 from '../assets/images/VelvetSkins3.jpg';
+import VelvetSkins4 from '../assets/images/VelvetSkins4.jpg';
+import VelvetSkins5 from '../assets/images/VelvetSkins5.jpg';
+import VelvetSkins6 from '../assets/images/VelvetSkins6.jpg';
+import VelvetSkins7 from '../assets/images/VelvetSkins7.jpg';
+import VelvetSkins8 from '../assets/images/VelvetSkins8.jpg';
+import VelvetSkins9 from '../assets/images/VelvetSkins9.jpg';
+import VelvetSkins10 from '../assets/images/VelvetSkins10.jpg';
+import VelvetSkins11 from '../assets/images/VelvetSkins11.jpg';
+import VelvetSkins12 from '../assets/images/VelvetSkins12.jpg';
+import VelvetSkins13 from '../assets/images/VelvetSkins13.jpg';
+import VelvetSkins14 from '../assets/images/VelvetSkins14.jpg';
+import VelvetSkins15 from '../assets/images/VelvetSkins15.jpg';
+import VelvetSkins16 from '../assets/images/VelvetSkins16.jpg';
+import houseMaroneia from '../assets/images/houseMaroneia.jpg';
+import houseMaroneia2 from '../assets/images/houseMaroneia2.jpg';
+import houseMaroneia3 from '../assets/images/houseMaroneia3.jpg';
+import houseMaroneia4 from '../assets/images/houseMaroneia4.jpg';
+import houseMaroneia5 from '../assets/images/houseMaroneia5.jpg';
+import threeStorybuilding from '../assets/images/three-storybuilding.jpg';
+import threeStorybuilding2 from '../assets/images/three-storybuilding2.jpg';
+import threeStorybuilding3 from '../assets/images/three-storybuilding3.jpg';
+import threeStorybuilding4 from '../assets/images/three-storybuilding4.jpg';
+import roofdetachedhouse from '../assets/images/roofdetachedhouse.jpg';
+import roofdetachedhouse2 from '../assets/images/roofdetachedhouse2.jpg';
+import roofdetachedhouse3 from '../assets/images/roofdetachedhouse3.jpg';
+import roofdetachedhouse4 from '../assets/images/roofdetachedhouse4.jpg';
+import roofdetachedhouse5 from '../assets/images/roofdetachedhouse5.jpg';
+import roofdetachedhouse6 from '../assets/images/roofdetachedhouse6.jpg';
+import groundFloorHolidayHomes from '../assets/images/ground-floor_holiday_homes.jpg';
+import groundFloorHolidayHomes2 from '../assets/images/ground-floor_holiday_homes2.jpg';
+import groundFloorHolidayHomes3 from '../assets/images/ground-floor_holiday_homes3.jpg';
+import groundFloorHolidayHomes4 from '../assets/images/ground-floor_holiday_homes4.jpg';
+import groundFloorHolidayHomes5 from '../assets/images/ground-floor_holiday_homes5.jpg';
+import groundFloorHolidayHomes6 from '../assets/images/ground-floor_holiday_homes6.jpg';
+import groundFloorHolidayHomes7 from '../assets/images/ground-floor_holiday_homes7.jpg';
+import houseAtArogiRodopi from '../assets/images/house_at_Arogi_Rodopi.jpg';
+import houseAtArogiRodopi2 from '../assets/images/house_at_Arogi_Rodopi2.jpg';
+import houseAtArogiRodopi3 from '../assets/images/house_at_Arogi_Rodopi3.jpg';
+import houseAtArogiRodopi4 from '../assets/images/house_at_Arogi_Rodopi4.jpg';
+import houseAtArogiRodopi5 from '../assets/images/house_at_Arogi_Rodopi5.jpg';
+import houseAtArogiRodopi6 from '../assets/images/house_at_Arogi_Rodopi6.jpg';
+import houseAtArogiRodopi7 from '../assets/images/house_at_Arogi_Rodopi7.jpg';
+import houseAtArogiRodopi8 from '../assets/images/house_at_Arogi_Rodopi8.jpg';
+import houseAtArogiRodopi9 from '../assets/images/house_at_Arogi_Rodopi9.jpg';
+import houseAtArogiRodopi10 from '../assets/images/house_at_Arogi_Rodopi10.jpg';
 
-interface FeatureItem {
-  title: string;
-  description: string;
+type ProjectKey = `project${number}`;
+
+interface CurrentSlides {
+  [key: ProjectKey]: number;
+}
+
+interface ProjectImages {
+  [key: ProjectKey]: string[];
 }
 
 const certifications = {
   el: {
     column1: [
-      '<strong>Πιστοποιημένος Ελεγκτής Δόμησης</strong>. Για έργα της μεγαλύτερης κατηγορίας.',
-      '<strong>Πιστοποιημένος Επιθεωρητής Καταλυμάτων</strong>. Για κατηγοριοποίηση ξενοδοχειακών μονάδων (αστεροποίηση) και ενοικιαζόμενων δωματίων (κλειδιά) από την <strong>TÜV Austria</strong>.',
+      'Πιστοποιημένος Ελεγκτής Δόμησης. Για έργα της μεγαλύτερης κατηγορίας.',
+      'Πιστοποιημένος Επιθεωρητής Καταλυμάτων. Για κατηγοριοποίηση ξενοδοχειακών μονάδων (αστεροποίηση) και ενοικιαζόμενων δωματίων (κλειδιά) από την <strong>TÜV Austria</strong>.',
       'Εμπειρία στις <strong>Εκτιμήσεις Ακινήτων</strong>, με συνεργασίες με διάφορες τράπεζες (Πανελλήνια, Ασπίς, Αγροτική, Πειραιώς).',
-      'Εξειδίκευση σε <strong>Ενεργειακές Μελέτες και Επιθεωρήσεις</strong> βάσει <strong>ΚΕΝΑΚ</strong>.',
-      'Διεκπεραίωση προγράμματος <strong>"Εξοικονομώ κατ\' Οίκον"</strong>.',
+      'Πιστοποίηση <strong>ISO/IEC 17024</strong>.',
+      'Διεκπεραίωση προγράμματος "<strong>Εξοικονομώ κατ\' Οίκον</strong>".',
       '<strong>Expert Valuer in Real Estate Property (REV) – TEGoVA</strong>.',
-      '<strong>Πιστοποιημένη Εκτιμήτρια Ακινήτων</strong>, διεξάγοντας εκτιμήσεις σύμφωνα με τα Ευρωπαϊκά Πρότυπα.'
+      'Πιστοποιημένη Εκτιμήτρια Ακινήτων, διεξάγοντας εκτιμήσεις σύμφωνα με τα Ευρωπαϊκά Πρότυπα.'
     ],
     column2: [
       '<strong>ΜΕΛΟΣ ΕΠΑΓΓΕΛΜΑΤΙΚΩΝ ΟΡΓΑΝΙΣΜΩΝ</strong>',
-      '<strong>Πιστοποίηση ISO/IEC 17024</strong>.',
-      '<strong>Μέλος του Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.)</strong>.',
-      '<strong>Συμμετοχή στην TEGoVA</strong>.',
-      '<strong>Εντεταλμένος Χορηγός REV της TEGoVA</strong>.'
+      'Εξειδίκευση σε <strong>Ενεργειακές Μελέτες και Επιθεωρήσεις</strong> βάσει <strong>ΚΕΝΑΚ</strong>.',
+      'Μέλος του <strong>Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.)</strong>.',
+      'Συμμετοχή στην <strong>TEGoVA</strong>.',
+      'Εντεταλμένος Χορηγός <strong>REV</strong> της <strong>TEGoVA</strong>.'
     ]
   },
   en: {
     column1: [
-      '<strong>Certified Building Inspector</strong> for large-scale projects.',
-      '<strong>Certified Accommodation Inspector</strong> for the classification of <strong>hotel units</strong> (star rating) and <strong>rental rooms</strong> (keys) by <strong>TÜV Austria</strong>.',
-      'Expertise in <strong>Real Estate Valuations</strong>, with collaborations with various banks (Panellinia, Aspis, Agricultural Bank, Piraeus Bank).',
-      'Specialization in <strong>Energy Studies and Inspections</strong> based on <strong>KENAK</strong>.',
-      'Execution of programs such as <strong>"Exoikonomo kat\' Oikon"</strong>.',
+      'Certified Building Inspector. For projects of the highest category.',
+      'Certified Accommodation Inspector. For categorization of hotel units (star rating) and rental rooms (keys) by <strong>TÜV Austria</strong>.',
+      'Experience in <strong>Real Estate Valuations</strong>, with collaborations with various banks (Panellinia, Aspis, Agricultural, Piraeus).',
+      'Certification <strong>ISO/IEC 17024</strong>.',
+      'Implementation of "<strong>Energy Saving at Home</strong>" program.',
       '<strong>Expert Valuer in Real Estate Property (REV) – TEGoVA</strong>.',
-      '<strong>Certified Real Estate Appraiser</strong>, conducting valuations in accordance with European Standards.'
+      'Certified Real Estate Appraiser, conducting valuations in accordance with European Standards.'
     ],
     column2: [
-      '<strong>MEMBERSHIP IN PROFESSIONAL ORGANIZATIONS</strong>',
-      '<strong>ISO/IEC 17024 Certification</strong>.',
-      '<strong>Member of the Hellenic Association of Valuers (Σ.ΕΚ.Ε.)</strong>.',
-      '<strong>Participation in TEGoVA</strong>.',
-      '<strong>Designated REV Sponsor of TEGoVA</strong>.'
+      '<strong>MEMBER OF PROFESSIONAL ORGANIZATIONS</strong>',
+      'Specialization in <strong>Energy Studies and Inspections</strong> based on <strong>KENAK</strong>.',
+      'Member of the <strong>Hellenic Valuers Association (HVA)</strong>.',
+      'Participation in <strong>TEGoVA</strong>.',
+      'Designated <strong>REV</strong> Sponsor of <strong>TEGoVA</strong>.'
     ]
   }
 };
 
-const slides = {
-  el: [
-    {
-      title: 'Αρχιτεκτονικές λύσεις - Διακόσμηση χώρων',
-      description: 'Αδειοδοτήσεις, Καταστημάτων, Καταλυμάτων, Επιχειρήσεων',
-      buttonText: 'Επισκόπηση',
-      buttonLink: '/interior-design',
-      image: spiti4
-    },
-    {
-      title: 'Χτίζουμε το Μέλλον, Σχεδιάζουμε τα Όνειρά σας',
-      description: 'Καινοτόμες αρχιτεκτονικές λύσεις και άριστη κατασκευαστική ποιότητα για κάθε έργο',
-      buttonText: 'Ανακαλύψτε τα κατασκευαστικά μας έργα',
-      buttonLink: '/blog',
-      image: t2
-    },
-    {
-      image: full7,
-      title: 'Δηλώσεις - Βεβαιώσεις αυθαίρετων',
-      description: 'Αρχιτεκτονικός σχεδιασμός, Έκδοση αδειών, Επαγγελματικών χώρων, Τουριστικών καταλυμάτων, Επιχειρήσεων',
-      buttonText: 'Δείτε τις αρχιτεκτονικές μας λύσεις',
-      link: '/architectural-design'
-    }
-  ],
-  en: [
-    {
-      title: 'Architectural Solutions - Interior Design',
-      description: 'Licensing, Stores, Accommodations, Businesses',
-      buttonText: 'Overview',
-      buttonLink: '/interior-design',
-      image: spiti4
-    },
-    {
-      title: 'Building the Future, Designing Your Dreams',
-      description: 'Innovative architectural solutions and excellent construction quality for every project',
-      buttonText: 'Discover our construction projects',
-      buttonLink: '/blog',
-      image: t2
-    },
-    {
-      image: full7,
-      title: 'Declarations - Certificates of unauthorized buildings',
-      description: 'Architectural design, Licensing, Commercial spaces, Tourist accommodations, Businesses',
-      buttonText: 'View our architectural solutions',
-      link: '/architectural-design'
-    }
-  ]
-};
-
 const Home = () => {
-  const { t } = useTranslation();
   const { language } = useLanguage();
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentSlides, setCurrentSlides] = useState<CurrentSlides>({
+    project1: 0,
+    project2: 0,
+    project3: 0,
+    project4: 0,
+    project5: 0,
+    project6: 0,
+    project7: 0,
+    project8: 0,
+    project9: 0,
+    project10: 0,
+    project11: 0,
+    project12: 0
+  });
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
-  useEffect(() => {
-    // Ορισμός title και meta description για SEO
-    document.title = language === 'el' 
-      ? 'IN-MAVRIDIS | Αρχιτεκτονικό Γραφείο & Τεχνικές Υπηρεσίες στην Κομοτηνή'
-      : 'IN-MAVRIDIS | Architectural Office & Technical Services in Komotini';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', language === 'el'
-        ? 'Το γραφείο IN-MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και τεχνικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις, ενεργειακές επιθεωρήσεις και εκτιμήσεις ακινήτων.'
-        : 'IN-MAVRIDIS office offers comprehensive architectural and technical services in Komotini, Greece. Architectural studies, construction, renovations, energy inspections and real estate valuations.'
-      );
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = language === 'el'
-        ? 'Το γραφείο IN-MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και τεχνικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις, ενεργειακές επιθεωρήσεις και εκτιμήσεις ακινήτων.'
-        : 'IN-MAVRIDIS office offers comprehensive architectural and technical services in Komotini, Greece. Architectural studies, construction, renovations, energy inspections and real estate valuations.';
-      document.head.appendChild(meta);
-    }
-
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => {
-        const next = prev + 1;
-        return next >= slides[language].length ? 0 : next;
-      });
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [language]);
-
-  const services = [
-    {
-      icon: Building2,
-      title: t('home.services.architectural.title'),
-      description: t('home.services.architectural.description'),
-      link: '/architectural-office'
-    },
-    {
-      icon: Building,
-      title: t('home.services.engineering.title'),
-      description: t('home.services.engineering.description'),
-      link: '/engineering-services'
-    },
-    {
-      icon: FileText,
-      title: language === 'el' ? 'Το Ιστολόγιο μας' : 'Our Blog',
-      description: language === 'el' 
-        ? 'Ανακαλύψτε τα τελευταία νέα, άρθρα και συμβουλές σχετικά με την αρχιτεκτονική και τις κατασκευές. Μείνετε ενημερωμένοι για τις τελευταίες τάσεις και εξελίξεις στον κλάδο.'
-        : 'Discover our latest news, articles and tips about architecture and construction. Stay updated with the latest trends and developments in the industry.',
-      link: '/blog',
-      buttonText: language === 'el' ? 'Μάθετε περισσότερα...' : 'Learn more...'
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100
-      }
-    }
-  };
-
-  const popUpVariants = {
-    hidden: { scale: 0.5, opacity: 0 },
-    visible: { 
-      scale: 1, 
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 260,
-        damping: 20
-      }
-    }
-  };
-
-  const serviceCardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.645, 0.045, 0.355, 1]
-      }
-    }
-  };
-
-  const cardContentVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: {
-        delay: 0.2,
-        duration: 0.4
-      }
-    }
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => {
-      const next = prev + 1;
-      return next >= slides[language].length ? 0 : next;
-    });
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => {
-      const next = prev - 1;
-      return next < 0 ? slides[language].length - 1 : next;
-    });
-  };
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ],
-    nextArrow: <button className="slick-next"><ChevronRight className="w-6 h-6" /></button>,
-    prevArrow: <button className="slick-prev"><ChevronLeft className="w-6 h-6" /></button>,
-  };
-
-  const handleImageClick = (imageSrc: string) => {
-    setSelectedImage(imageSrc);
+  const handleImageClick = (image: string) => {
+    setSelectedImage(image);
   };
 
   const closeFullscreen = () => {
     setSelectedImage(null);
   };
 
+  const projectImages: ProjectImages = {
+    project1: [lop, lop2],
+    project2: [ad, af, ag, ah, aj, ak, al, as1],
+    project3: [m, n, b, v, c, x, z],
+    project4: [f1, f2, f3],
+    project5: [to, to1],
+    project6: [t1, t10, t2, t3, t4, t5, t6, t7, t8, t9],
+    project7: [
+      VelvetSkins2, VelvetSkins3, VelvetSkins4, VelvetSkins5, 
+      VelvetSkins6, VelvetSkins7, VelvetSkins8, VelvetSkins9,
+      VelvetSkins10, VelvetSkins11, VelvetSkins12, VelvetSkins13,
+      VelvetSkins14, VelvetSkins15, VelvetSkins16
+    ],
+    project8: [houseMaroneia, houseMaroneia2, houseMaroneia3, houseMaroneia4, houseMaroneia5],
+    project9: [threeStorybuilding, threeStorybuilding2, threeStorybuilding3, threeStorybuilding4],
+    project10: [roofdetachedhouse, roofdetachedhouse2, roofdetachedhouse3, roofdetachedhouse4, roofdetachedhouse5, roofdetachedhouse6],
+    project11: [groundFloorHolidayHomes, groundFloorHolidayHomes2, groundFloorHolidayHomes3, groundFloorHolidayHomes4, groundFloorHolidayHomes5, groundFloorHolidayHomes6, groundFloorHolidayHomes7],
+    project12: [
+      houseAtArogiRodopi, houseAtArogiRodopi2, houseAtArogiRodopi3, 
+      houseAtArogiRodopi4, houseAtArogiRodopi5, houseAtArogiRodopi6,
+      houseAtArogiRodopi7, houseAtArogiRodopi8, houseAtArogiRodopi9,
+      houseAtArogiRodopi10
+    ]
+  };
+
+  const handlePrevSlide = (project: ProjectKey, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentSlides(prev => ({
+      ...prev,
+      [project]: prev[project] === 0 ? projectImages[project].length - 1 : prev[project] - 1
+    }));
+  };
+
+  const handleNextSlide = (project: ProjectKey, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentSlides(prev => ({
+      ...prev,
+      [project]: prev[project] === projectImages[project].length - 1 ? 0 : prev[project] + 1
+    }));
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="relative w-full h-[80vh] md:h-[90vh] bg-cover bg-center">
-        <div className="absolute inset-0">
-          <div className="relative h-full">
-            {slides[language].map((slide, index) => (
-              <motion.div
-                key={index}
-                className={`absolute inset-0 ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0'
-                } transition-opacity duration-1000 ease-in-out`}
-              >
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="max-w-7xl mx-auto px-4 md:px-12 text-center">
-                    <motion.h1
-                      className="text-3xl md:text-5xl font-bold text-white mb-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {slide.title}
-                    </motion.h1>
-                    <motion.p
-                      className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                      {slide.description}
-                    </motion.p>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                      <Link
-                        to={slide.buttonLink}
-                        className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-base md:text-lg font-semibold z-10 relative"
-                      >
-                        {slide.buttonText}
-                      </Link>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Navigation Buttons */}
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-between px-4 md:px-8 pointer-events-none">
-              <button
-                onClick={prevSlide}
-                className="bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 md:p-3 rounded-full transform transition-transform hover:scale-110 focus:outline-none pointer-events-auto"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 md:p-3 rounded-full transform transition-transform hover:scale-110 focus:outline-none pointer-events-auto"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
-              </button>
-            </div>
-
-            {/* Slide Indicators */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
-              {slides[language].map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
-                    index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Balkans Section */}
-      <div className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+    <div className="min-h-screen">
+      {/* Project Management Section */}
+      <div className="py-16 relative bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${qq3})` }}>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            {language === 'el' ? 'Βαλκάνια' : 'Balkans'}
-          </motion.h2>
-
-          <motion.div
-            className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              {language === 'el' 
-                ? 'Ανακαλύψτε τις μοναδικές ευκαιρίες ανάπτυξης και επενδύσεων στη Θράκη. Με στρατηγική τοποθεσία, δίπλα σε Βουλγαρία και Τουρκία, και πρόσβαση σε ανερχόμενες τουριστικές αγορές, η περιοχή μας προσφέρει αμέτρητες δυνατότητες.'
-                : 'Discover unique development and investment opportunities in Thrace. With a strategic location next to Bulgaria and Turkey, and access to emerging tourist markets, our region offers countless possibilities.'}
-            </p>
-            <Link
-              to="/whyinterested"
-              className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              {language === 'el' ? 'Μάθετε περισσότερα!' : 'Learn more!'}
-            </Link>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Projects Showcase Section */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-6 text-blue-600"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {language === 'el' ? 'Οι Δημιουργίες μας!' : 'Our Creations!'}
-          </motion.h2>
-
-          <motion.p
-            className="text-gray-600 text-center text-lg mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {language === 'el' 
-              ? <>Οι παρακάτω εικόνες αποτυπώνουν τόσο την <span className="font-bold text-black">αρχιτεκτονική</span> όσο και την <span className="font-bold text-black">κατασκευαστική</span> πλευρά της επιχείρησής μας, αποπνέοντας τον μόχθο και την αφοσίωση που καταβάλλουμε καθημερινά για εσάς.</>
-              : <>The following images capture both the <span className="font-bold text-black">architectural</span> and <span className="font-bold text-black">construction</span> aspects of our business, reflecting the dedication and effort we put in daily for you.</>
-            }
-          </motion.p>
-
-          <motion.div 
-            className="relative px-8"
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <Slider {...sliderSettings}>
-              {[
-                { img: r7 },
-                { img: q3 },
-                { img: t5 },
-                { img: d8 },
-                { img: r2 },
-                { img: q8 },
-                { img: t1 },
-                { img: d4 },
-                { img: r11 },
-                { img: q1 },
-                { img: t8 },
-                { img: d1 },
-                { img: r4 },
-                { img: q5 },
-                { img: t3 },
-                { img: d7 },
-                { img: r9 },
-                { img: q2 },
-                { img: t10 },
-                { img: d2 },
-                { img: r1 },
-                { img: q7 },
-                { img: t2 },
-                { img: d9 },
-                { img: r6 },
-                { img: q4 },
-                { img: t7 },
-                { img: as },
-                { img: r3 },
-                { img: q9 },
-                { img: t4 },
-                { img: d5 },
-                { img: r8 },
-                { img: q6 },
-                { img: t6 },
-                { img: d6 },
-                { img: r5 },
-                { img: to },
-                { img: r10 },
-                { img: to1 },
-                { img: f1 },
-                { img: f2 },
-                { img: f3 },
-                { img: con1 },
-                { img: con2 },
-                { img: con3 },
-                { img: con4 }
-              ].map((slide, index) => (
-                <div key={index}>
-                  <img 
-                    src={slide.img} 
-                    alt="" 
-                    className="w-full h-[600px] object-cover cursor-pointer" 
-                    onClick={() => handleImageClick(slide.img)}
-                  />
+            {language === 'el' 
+              ? 'Ολοκληρωμένη Διαχείριση Έργων & Αρχιτεκτονικός Σχεδιασμός' 
+              : 'Complete Project Management & Architectural Design'}
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Construction Management Card */}
+                  <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Building2 className="h-8 w-8 text-blue-600" />
                 </div>
-              ))}
-            </Slider>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' 
+                    ? 'Διαχείριση Εργοταξίου & Έργων' 
+                    : 'Construction Site & Project Management'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  language === 'el' ? 'Κοστολόγηση ανά στάδιο' : 'Stage-based cost estimation',
+                  language === 'el' ? 'Χρονοπρογραμματισμός (Project Management)' : 'Time scheduling (Project Management)',
+                  language === 'el' ? 'Επίβλεψη & στατικές ενισχύσεις' : 'Supervision & structural reinforcements'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-blue-500 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
           </motion.div>
 
-          {/* Fullscreen Modal με δυνατότητα πλοήγησης */}
-          {selectedImage && (
-            <div 
-              className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center"
+            {/* Architectural Design Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 hover:shadow-lg transition-shadow"
             >
-              <button 
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const currentIndex = slides[language].findIndex(slide => slide.image === selectedImage);
-                  const prevIndex = currentIndex > 0 ? currentIndex - 1 : slides[language].length - 1;
-                  setSelectedImage(slides[language][prevIndex].image);
-                }}
-              >
-                <ChevronLeft className="w-8 h-8" />
-              </button>
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Ruler className="h-8 w-8 text-blue-600" />
+        </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' 
+                    ? 'Αρχιτεκτονικός Σχεδιασμός & Άδειες' 
+                    : 'Architectural Design & Permits'}
+                </h3>
+      </div>
+              <ul className="space-y-4">
+                {[
+                  language === 'el' ? 'Συμβουλευτική σε θέματα ακινήτων' : 'Consulting on property matters',
+                  language === 'el' ? 'Άδειες για όλους τους τύπους έργων' : 'Permits for all project types',
+                  language === 'el' ? 'Αρχιτεκτονικός σχεδιασμός & υλοποίηση' : 'Architectural design & implementation'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-blue-500 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
 
-              <img 
-                src={selectedImage} 
-                alt="" 
-                className="max-h-[90vh] max-w-[90vw] object-contain"
-                onClick={(e) => e.stopPropagation()}
-              />
-
-              <button 
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const currentIndex = slides[language].findIndex(slide => slide.image === selectedImage);
-                  const nextIndex = currentIndex < slides[language].length - 1 ? currentIndex + 1 : 0;
-                  setSelectedImage(slides[language][nextIndex].image);
-                }}
-              >
-                <ChevronRight className="w-8 h-8" />
-              </button>
-
-              <button 
-                className="absolute top-4 right-4 text-white hover:text-gray-300"
-                onClick={closeFullscreen}
-              >
-                <X className="w-8 h-8" />
-              </button>
-            </div>
-          )}
-
-          <motion.div 
+          {/* CTA Button */}
+          <motion.div
             className="text-center mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <Link
-              to="/portfolio"
+              to="/contact"
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              {language === 'el' ? 'Δείτε όλα τα έργα μας' : 'View all our projects'}
+              {language === 'el' ? 'Επικοινωνήστε μαζί μας' : 'Contact Us'}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
         </div>
       </div>
 
-      {/* Construction Services Section */}
+      {/* Selected Projects Section */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h2 
@@ -617,249 +336,713 @@ const Home = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            {t('home.constructionServices.title')}
+            {language === 'el' ? 'Επιλεγμένα Έργα' : 'Selected Projects'}
           </motion.h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              {/* Work Plan Design */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Project 1 */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <h3 className="text-2xl font-semibold mb-6">
-                  {t('home.constructionServices.planning.title')}
-                </h3>
-                <ul className="space-y-3">
-                  {(t('home.constructionServices.planning.items') as string[]).map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <Ruler className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              {/* Specialized Works */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <h3 className="text-2xl font-semibold mb-6">
-                  {t('home.constructionServices.specialized.title')}
-                </h3>
-                <ul className="space-y-3">
-                  {(t('home.constructionServices.specialized.items') as string[]).map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <Building2 className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-
-            {/* Image Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              onClick={() => setSelectedProject(0)}
             >
-              <img 
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-                alt="Construction and Architecture"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {t('home.constructionServices.construction.title')}
-                  </h3>
-                  <p className="text-gray-200 mb-4">
-                    {t('home.constructionServices.construction.description')}
-                  </p>
-                  <p className="text-gray-300 text-sm">
-                    {t('home.constructionServices.construction.quality')}
-                  </p>
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project1[currentSlides.project1]} 
+                  alt="Νέο Έργο" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project1', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project1', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
                 </div>
               </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Νέο Έργο - Μονοκατοικία στις Σάπες' : 'New Project - House in Sapes'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el' 
+                    ? 'Νέο έργο υπό κατασκευή. Ανέγερση μονοκατοικίας στις Σάπες Ροδόπης.'
+                    : 'New project under construction. House building in Sapes, Rodopi.'}
+                </p>
+              </div>
+              </motion.div>
+
+            {/* Project 2 */}
+              <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              onClick={() => setSelectedProject(1)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project2[currentSlides.project2]} 
+                  alt="Μελέτη Ανέγερσης" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project2', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project2', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Μελέτη Ανέγερσης Ισόγειας Μονοκατοικίας' : 'Single Story House Construction Study'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Μελέτη ανέγερσης ισόγειας μονοκατοικίας με πρόβλεψη ορόφου. Φωτορεαλιστική απεικόνιση.'
+                    : 'Construction study for a single-story house with provision for an additional floor. Photorealistic rendering.'}
+                </p>
+            </div>
             </motion.div>
-          </div>
-        </div>
-      </div>
 
-      {/* Text Section above Services */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              {language === 'el' ? 'Ολοκληρωμένες Αρχιτεκτονικές & Κατασκευαστικές Υπηρεσίες' : 'Comprehensive Architectural & Construction Services'}
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              {language === 'el' 
-                ? 'Το αρχιτεκτονικό και κατασκευαστικό μας γραφείο προσφέρει ολοκληρωμένες λύσεις για κάθε έργο, από τη σύλληψη της ιδέας έως την ολοκλήρωση της κατασκευής. Απευθυνόμαστε σε ιδιώτες και επιχειρήσεις που επιθυμούν να διαχειριστούν το ιδιοκτησιακό τους καθεστώς, να χτίσουν σε αστικά ή παραθαλάσσια οικόπεδα και να υλοποιήσουν το όραμά τους με απόλυτη συνέπεια και επαγγελματισμό.'
-                : 'Our architectural and construction office offers comprehensive solutions for every project, from concept to completion. We serve individuals and businesses looking to manage their property status, build in urban or seaside plots, and realize their vision with absolute consistency and professionalism.'
-              }
-            </p>
-
-            {/* Το κουμπί */}
+            {/* Project 3 */}
             <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              onClick={() => setSelectedProject(2)}
             >
-              <Link 
-                to="/blog"
-                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-lg 
-                         text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 
-                         hover:scale-105 inline-flex items-center space-x-2"
-              >
-                <span>
-                  {language === 'el' 
-                    ? 'Επισκόπηση της δουλειάς μας'
-                    : 'Overview of our work'
-                  }
-                </span>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-5 w-5" 
-                  viewBox="0 0 20 20" 
-                  fill="currentColor"
-                >
-                  <path 
-                    fillRule="evenodd" 
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
-                    clipRule="evenodd" 
-                  />
-                </svg>
-              </Link>
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project3[currentSlides.project3]} 
+                  alt="Προκατασκευασμένες Κατοικίες" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project3', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project3', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Προκατασκευασμένες Κατοικίες στον Προφήτη Ηλία' : 'Prefabricated Houses in Profitis Ilias'}
+                  </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Νέο έργο σε εξέλιξη: Ανέγερση δύο όμοιων προκατασκευασμένων κατοικιών. Ολοκλήρωση βάσεων σκυροδέματος.'
+                    : 'Ongoing project: Construction of two identical prefabricated houses. Completion of concrete foundations.'}
+                </p>
+              </div>
             </motion.div>
+
+            {/* Project 4 - Μονοκατοικία στην Παραλία Αρωγής */}
+            <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedProject(3)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project4[currentSlides.project4 || 0]} 
+                  alt="Μονοκατοικία στην Παραλία Αρωγής" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project4', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project4', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+          </div>
+        </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Μονοκατοικία στην Παραλία Αρωγής' : 'House in Arogi Beach'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el' 
+                    ? 'Αρχιτεκτονική μελέτη, Στατική μελέτη, ισόγειας μονοκατοικίας 50 τ.μ. με σοφίτα 25 τ.μ. σε οικόπεδο στην Παραλία Αρωγής Ροδόπης.'
+                    : 'Architectural study, Static study, single-story house 50 sq.m. with 25 sq.m. loft in Arogi Beach, Rodopi.'}
+                </p>
+      </div>
+            </motion.div>
+
+            {/* Project 5 - Διώροφη Μονοκατοικία */}
+          <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+              onClick={() => setSelectedProject(4)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project5[currentSlides.project5 || 0]} 
+                  alt="Διώροφη Μονοκατοικία" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project5', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project5', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Διώροφη Μονοκατοικία με Σοφίτα στην Εκτενεπόλ' : 'Two-story House with Loft in Ektenepol'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+              {language === 'el' 
+                    ? 'Ανέγερση διώροφου μονοκατοικίας με Σοφίτα- αρχιτεκτονική μελέτη- Εκτενεπόλ ΖΕΠ Κομοτηνής'
+                    : 'Construction of a two-story house with loft - architectural study - Ektenepol ZEP Komotini'}
+            </p>
+              </div>
+            </motion.div>
+
+            {/* Project 6 - Πολυώροφα Κτίρια */}
+            <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedProject(5)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project6[currentSlides.project6 || 0]} 
+                  alt="Πολυώροφα Κτίρια" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project6', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project6', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+        </div>
+      </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Πολυώροφα Κτίρια Κατοικιών στην Κομοτηνή' : 'Multi-story Residential Buildings in Komotini'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Past multi storey residential projects. Komotini.'
+                    : 'Past multi storey residential projects. Komotini.'}
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Project 7 - Velvet Skins */}
+      <motion.div 
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+              onClick={() => setSelectedProject(6)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project7[currentSlides.project7 || 0]} 
+                  alt="Velvet Skins Laser and Face Center" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project7', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project7', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' ? 'Velvet Skins Laser and Face Center Κομοτηνή' : 'Velvet Skins Laser and Face Center Komotini'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Αρχιτεκτονικός σχεδιασμός, Μελέτη, Πλήρης οργάνωση χρονοδιαγράμματος & Λειτουργική υλοποίηση. Νέος επαγγελματικός χώρος.'
+                    : 'Architectural design, Study, Complete timeline organization & Functional implementation. New professional space.'}
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Project 8 - Παραθαλασσιοι οικισμοι */}
+          <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedProject(7)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project8[currentSlides.project8 || 0]} 
+                  alt="Παραθαλασσιοι οικισμοι" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project8', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project8', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' 
+                    ? 'Παραθαλασσιοι οικισμοι στο Προφήτη Ηλία Δ.Μαρωνειας ΠΕ Ροδόπης' 
+                    : 'Coastal settlements in Profitis Ilias, Maroneia, Rodopi'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Κατασκευή τριών παραθεριστικών κατοικιών στον παραθαλάσσιο οικισμό Προφήτη Ηλία Δ.Μαρωνειας ΠΕ Ροδόπης.- εξέλιξη κατασκευής.'
+                    : 'Construction of three holiday homes in the coastal settlement of Profitis Ilias, Maroneia, Rodopi - construction progress.'}
+                </p>
+              </div>
           </motion.div>
+
+            {/* Project 9 - Τριώροφη Οικοδομή */}
+              <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              onClick={() => setSelectedProject(8)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project9[currentSlides.project9 || 0]} 
+                  alt="Τριώροφη Οικοδομή" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project9', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project9', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' 
+                    ? 'Ανέγερση τριωροφης οικοδομής' 
+                    : 'Construction of three-story building'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Αρχιτεκτονική μελέτη- ανέγερση τριωροφου οικοδομής επι πυλωτής με υπόγειο και με Σοφιτα στην Κομοτηνη-περιοχή Σιδ/κου Σταθμου. Πρόκειται για ιδιωτικό έργο και δεν πωλουνται οι ιδιοκτησιες.'
+                    : 'Architectural study - construction of a three-story building with pilotis, basement and loft in Komotini-Railway Station area. This is a private project and the properties are not for sale.'}
+                </p>
+                  </div>
+                </motion.div>
+
+            {/* Project 10 - Ισόγεια κεραμοσκεπης μονοκατοικία */}
+                <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedProject(9)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project10[currentSlides.project10 || 0]} 
+                  alt="Ισόγεια κεραμοσκεπης μονοκατοικία" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project10', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project10', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' 
+                    ? 'Iσόγεια κεραμοσκεπους μονοκατοικία στην Κομοτηνη' 
+                    : 'Single-story tiled roof house in Komotini'}
+                    </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Αποπεράτωση ισόγειας κεραμοσκεπους μονοκατοικίας στην Κομοτηνη.'
+                    : 'Completion of a single-story tiled roof house in Komotini.'}
+                    </p>
+                  </div>
+            </motion.div>
+
+            {/* Project 11 - Παραθεριστικές κατοικίες Προφήτη Ηλία */}
+            <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedProject(10)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project11[currentSlides.project11 || 0]} 
+                  alt="Παραθεριστικές κατοικίες Προφήτη Ηλία" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project11', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project11', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' 
+                    ? 'Αποπεράτωση δυο ισόγειων παραθεριστικών κατοικιών στον παραθαλάσσιο οικισμό Προφήτη Ηλία Ροδοπης' 
+                    : 'Completion of two ground-floor holiday homes in Profitis Ilias coastal settlement, Rodopi'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Μελέτη, επίβλεψη, κατασκευή, Αποπεράτωση δυο ισόγειων παραθεριστικών κατοικιών των 50 τμ. συμβατικής κατασκευής low budget στον παραθαλάσσιο οικισμό Προφήτη Ηλία Ροδοπης.'
+                    : 'Study, supervision, construction, Completion of two 50 sq.m. ground-floor holiday homes of conventional low-budget construction in Profitis Ilias coastal settlement, Rodopi.'}
+                </p>
+                  </div>
+                </motion.div>
+
+            {/* Project 12 - Παραθεριστική Μονοκατοικία Αρωγής */}
+            <motion.div
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              onClick={() => setSelectedProject(11)}
+            >
+              <div className="relative aspect-[4/3]">
+                <img 
+                  src={projectImages.project12[currentSlides.project12 || 0]} 
+                  alt="Παραθεριστική Μονοκατοικία Αρωγής" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handlePrevSlide('project12', e)}
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button 
+                    className="p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
+                    onClick={(e) => handleNextSlide('project12', e)}
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+          </div>
+        </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  {language === 'el' 
+                    ? 'Ανεγερση ισογειας παραθεριστικης μονοκατοικιας στον οικισμο Αρωγης ΠΕ Ροδοπης' 
+                    : 'Construction of a ground-floor holiday home in Arogi settlement, Rodopi'}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {language === 'el'
+                    ? 'Ανεγερση ισογειας παραθεριστικης μονοκατοικιας 65 τμ, σε οικοπεδο 220 τμ, στον οικισμο Αρωγης ΠΕ Ροδοπης.'
+                    : 'Construction of a 65 sq.m. ground-floor holiday home on a 220 sq.m. plot in Arogi settlement, Rodopi.'}
+                </p>
+              </div>
+      </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Services Section */}
       <div className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={serviceCardVariants}
-                className="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="p-6">
-                  <service.icon className="h-12 w-12 text-blue-600 mb-4" />
-                  <motion.div variants={cardContentVariants}>
-                    <h3 className="text-xl md:text-2xl font-semibold mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 text-sm md:text-base">
-                      {service.description}
-                    </p>
-                    <Link
-                      to={service.link}
-                      className="inline-block text-blue-600 hover:text-blue-700 font-medium group relative"
-                    >
-                      <span className="flex items-center">
-                        {service.buttonText || (language === 'el' ? 'Μάθετε περισσότερα...' : 'Learn more...')}
-                      </span>
-                    </Link>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Why Choose Us Section */}
-      <div className="py-12 md:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
           <motion.h2 
-            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 gradient-text"
+            className="text-3xl font-bold text-center mb-12 gradient-text"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            {t('home.whyChooseUs.title')}
+            {language === 'el' ? 'Οι Υπηρεσίες μας' : 'Our Services'}
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {(t('home.whyChooseUs.features') as FeatureItem[]).map((feature, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Architectural Services */}
               <motion.div
-                key={index}
-                className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover-card"
+              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+            >
+              <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Building2 className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                {language === 'el' ? 'Αρχιτεκτονικές Υπηρεσίες' : 'Architectural Services'}
+              </h3>
+              <p className="text-gray-600 mb-4">
+                {language === 'el' 
+                  ? 'Σχεδιασμός και υλοποίηση αρχιτεκτονικών έργων με καινοτόμες λύσεις'
+                  : 'Design and implementation of architectural projects with innovative solutions'}
+              </p>
+              <Link
+                to="/architectural-office"
+                className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
               >
-                <h3 className="text-lg md:text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm md:text-base">{feature.description}</p>
+                {language === 'el' ? 'Μάθετε περισσότερα' : 'Learn more'}
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
               </motion.div>
-            ))}
+
+            {/* Engineering Services */}
+            <motion.div
+              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Ruler className="h-6 w-6 text-green-600" />
+          </div>
+              <h3 className="text-xl font-semibold mb-3">
+                {language === 'el' ? 'Υπηρεσίες Μηχανικού' : 'Engineering Services'}
+              </h3>
+              <p className="text-gray-600 mb-4">
+                {language === 'el'
+                  ? 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
+                  : 'Comprehensive engineering services and technical studies'}
+              </p>
+              <Link
+                to="/engineering-services"
+                className="text-green-600 hover:text-green-700 font-medium inline-flex items-center"
+              >
+                {language === 'el' ? 'Μάθετε περισσότερα' : 'Learn more'}
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </motion.div>
+
+            {/* Real Estate Services */}
+            <motion.div
+              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Building className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                {language === 'el' ? 'Διαχείριση Ακινήτων' : 'Real Estate Management'}
+              </h3>
+              <p className="text-gray-600 mb-4">
+                {language === 'el'
+                  ? 'Επαγγελματική διαχείριση και αξιοποίηση ακινήτων'
+                  : 'Professional real estate management and development'}
+              </p>
+              <Link
+                to="/portfolio"
+                className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center"
+              >
+                {language === 'el' ? 'Μάθετε περισσότερα' : 'Learn more'}
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>
 
       {/* Certifications Section */}
-      <div className="bg-white py-12 md:py-16">
+      <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
-            {t('home.certifications.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Left Column */}
-            <motion.div
-              className="bg-gray-50 p-4 md:p-8 rounded-lg overflow-x-auto"
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-600"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <ul className="space-y-3 min-w-[300px]">
+            {language === 'el' ? 'Πιστοποιήσεις' : 'Certifications'}
+          </motion.h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Certifications Card */}
+            <motion.div
+              className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Award className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' ? 'Επαγγελματικές Πιστοποιήσεις' : 'Professional Certifications'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
                 {certifications[language].column1.map((cert, index) => (
-                  <li key={index} className="flex items-start text-sm md:text-base">
-                    <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
-                    <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: cert }}></span>
-                  </li>
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start space-x-3 text-gray-700"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span 
+                      className="text-base leading-relaxed" 
+                      dangerouslySetInnerHTML={{ __html: cert }}
+                    />
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Right Column */}
+            {/* Professional Memberships Card */}
             <motion.div
-              className="bg-gray-50 p-4 md:p-8 rounded-lg overflow-x-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <ul className="space-y-3 min-w-[300px]">
+              <div className="flex items-center mb-6">
+                <div className="bg-green-100 p-3 rounded-full">
+                  <Users className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' ? 'Επαγγελματικές Συμμετοχές' : 'Professional Memberships'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
                 {certifications[language].column2.map((cert, index) => (
-                  <li key={index} className="flex items-start text-sm md:text-base">
-                    <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
-                    <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: cert }}></span>
-                  </li>
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start space-x-3 text-gray-700"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span 
+                      className="text-base leading-relaxed" 
+                      dangerouslySetInnerHTML={{ __html: cert }}
+                    />
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
           </div>
+
+          {/* CTA Button */}
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/about-us"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              {language === 'el' ? 'Μάθετε περισσότερα για εμάς' : 'Learn more about us'}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>
