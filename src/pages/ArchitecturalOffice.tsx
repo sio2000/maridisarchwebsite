@@ -39,6 +39,53 @@ import ak from '../assets/images/ak.jpg';
 import al from '../assets/images/al.jpg';
 import lop from '../assets/images/lop.png';
 import lop2 from '../assets/images/lop2.jpg';
+import VelvetSkins2 from '../assets/images/VelvetSkins2.jpg';
+import VelvetSkins3 from '../assets/images/VelvetSkins3.jpg';
+import VelvetSkins4 from '../assets/images/VelvetSkins4.jpg';
+import VelvetSkins5 from '../assets/images/VelvetSkins5.jpg';
+import VelvetSkins6 from '../assets/images/VelvetSkins6.jpg';
+import VelvetSkins7 from '../assets/images/VelvetSkins7.jpg';
+import VelvetSkins8 from '../assets/images/VelvetSkins8.jpg';
+import VelvetSkins9 from '../assets/images/VelvetSkins9.jpg';
+import VelvetSkins10 from '../assets/images/VelvetSkins10.jpg';
+import VelvetSkins11 from '../assets/images/VelvetSkins11.jpg';
+import VelvetSkins12 from '../assets/images/VelvetSkins12.jpg';
+import VelvetSkins13 from '../assets/images/VelvetSkins13.jpg';
+import VelvetSkins14 from '../assets/images/VelvetSkins14.jpg';
+import VelvetSkins15 from '../assets/images/VelvetSkins15.jpg';
+import VelvetSkins16 from '../assets/images/VelvetSkins16.jpg';
+import houseMaroneia from '../assets/images/houseMaroneia.jpg';
+import houseMaroneia2 from '../assets/images/houseMaroneia2.jpg';
+import houseMaroneia3 from '../assets/images/houseMaroneia3.jpg';
+import houseMaroneia4 from '../assets/images/houseMaroneia4.jpg';
+import houseMaroneia5 from '../assets/images/houseMaroneia5.jpg';
+import threeStorybuilding from '../assets/images/three-storybuilding.jpg';
+import threeStorybuilding2 from '../assets/images/three-storybuilding2.jpg';
+import threeStorybuilding3 from '../assets/images/three-storybuilding3.jpg';
+import threeStorybuilding4 from '../assets/images/three-storybuilding4.jpg';
+import roofdetachedhouse from '../assets/images/roofdetachedhouse.jpg';
+import roofdetachedhouse2 from '../assets/images/roofdetachedhouse2.jpg';
+import roofdetachedhouse3 from '../assets/images/roofdetachedhouse3.jpg';
+import roofdetachedhouse4 from '../assets/images/roofdetachedhouse4.jpg';
+import roofdetachedhouse5 from '../assets/images/roofdetachedhouse5.jpg';
+import roofdetachedhouse6 from '../assets/images/roofdetachedhouse6.jpg';
+import groundFloorHolidayHomes from '../assets/images/ground-floor_holiday_homes.jpg';
+import groundFloorHolidayHomes2 from '../assets/images/ground-floor_holiday_homes2.jpg';
+import groundFloorHolidayHomes3 from '../assets/images/ground-floor_holiday_homes3.jpg';
+import groundFloorHolidayHomes4 from '../assets/images/ground-floor_holiday_homes4.jpg';
+import groundFloorHolidayHomes5 from '../assets/images/ground-floor_holiday_homes5.jpg';
+import groundFloorHolidayHomes6 from '../assets/images/ground-floor_holiday_homes6.jpg';
+import groundFloorHolidayHomes7 from '../assets/images/ground-floor_holiday_homes7.jpg';
+import houseAtArogiRodopi from '../assets/images/house_at_Arogi_Rodopi.jpg';
+import houseAtArogiRodopi2 from '../assets/images/house_at_Arogi_Rodopi2.jpg';
+import houseAtArogiRodopi3 from '../assets/images/house_at_Arogi_Rodopi3.jpg';
+import houseAtArogiRodopi4 from '../assets/images/house_at_Arogi_Rodopi4.jpg';
+import houseAtArogiRodopi5 from '../assets/images/house_at_Arogi_Rodopi5.jpg';
+import houseAtArogiRodopi6 from '../assets/images/house_at_Arogi_Rodopi6.jpg';
+import houseAtArogiRodopi7 from '../assets/images/house_at_Arogi_Rodopi7.jpg';
+import houseAtArogiRodopi8 from '../assets/images/house_at_Arogi_Rodopi8.jpg';
+import houseAtArogiRodopi9 from '../assets/images/house_at_Arogi_Rodopi9.jpg';
+import houseAtArogiRodopi10 from '../assets/images/house_at_Arogi_Rodopi10.jpg';
 import { Link } from 'react-router-dom';
 
 interface ServiceItem {
@@ -269,6 +316,72 @@ Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
         en: 'Past multi storey residential projects. Komotini.'
       },
       images: [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
+    },
+    {
+      title: {
+        el: 'Velvet Skins Laser and Face Center Κομοτηνή',
+        en: 'Velvet Skins Laser and Face Center Komotini'
+      },
+      description: {
+        el: 'Αρχιτεκτονικός σχεδιασμός, Μελέτη, Πλήρης οργάνωση χρονοδιαγράμματος & Λειτουργική υλοποίηση. Νέος επαγγελματικός χώρος.',
+        en: 'Architectural design, Study, Complete timeline organization & Functional implementation. New professional space.'
+      },
+      images: [VelvetSkins2, VelvetSkins3, VelvetSkins4, VelvetSkins5, VelvetSkins6, VelvetSkins7, VelvetSkins8, VelvetSkins9, VelvetSkins10, VelvetSkins11, VelvetSkins12, VelvetSkins13, VelvetSkins14, VelvetSkins15, VelvetSkins16]
+    },
+    {
+      title: {
+        el: 'Παραθαλασσιοι οικισμοι στο Προφήτη Ηλία Δ.Μαρωνειας ΠΕ Ροδόπης',
+        en: 'Coastal settlements in Profitis Ilias, Maroneia, Rodopi'
+      },
+      description: {
+        el: 'Κατασκευή τριών παραθεριστικών κατοικιών στον παραθαλάσσιο οικισμό Προφήτη Ηλία Δ.Μαρωνειας ΠΕ Ροδόπης.- εξέλιξη κατασκευής.',
+        en: 'Construction of three holiday homes in the coastal settlement of Profitis Ilias, Maroneia, Rodopi - construction progress.'
+      },
+      images: [houseMaroneia, houseMaroneia2, houseMaroneia3, houseMaroneia4, houseMaroneia5]
+    },
+    {
+      title: {
+        el: 'Ανέγερση τριωροφης οικοδομής',
+        en: 'Construction of three-story building'
+      },
+      description: {
+        el: 'Αρχιτεκτονική μελέτη- ανέγερση τριωροφου οικοδομής επι πυλωτής με υπόγειο και με Σοφιτα στην Κομοτηνη-περιοχή Σιδ/κου Σταθμου. Πρόκειται για ιδιωτικό έργο και δεν πωλουνται οι ιδιοκτησιες.',
+        en: 'Architectural study - construction of a three-story building with pilotis, basement and loft in Komotini-Railway Station area. This is a private project and the properties are not for sale.'
+      },
+      images: [threeStorybuilding, threeStorybuilding2, threeStorybuilding3, threeStorybuilding4]
+    },
+    {
+      title: {
+        el: 'Iσόγεια κεραμοσκεπους μονοκατοικία στην Κομοτηνη',
+        en: 'Single-story tiled roof house in Komotini'
+      },
+      description: {
+        el: 'Αποπεράτωση ισόγειας κεραμοσκεπους μονοκατοικίας στην Κομοτηνη.',
+        en: 'Completion of a single-story tiled roof house in Komotini.'
+      },
+      images: [roofdetachedhouse, roofdetachedhouse2, roofdetachedhouse3, roofdetachedhouse4, roofdetachedhouse5, roofdetachedhouse6]
+    },
+    {
+      title: {
+        el: 'Αποπεράτωση δυο ισόγειων παραθεριστικών κατοικιών στον παραθαλάσσιο οικισμό Προφήτη Ηλία Ροδοπης',
+        en: 'Completion of two ground-floor holiday homes in Profitis Ilias coastal settlement, Rodopi'
+      },
+      description: {
+        el: 'Μελέτη, επίβλεψη, κατασκευή, Αποπεράτωση δυο ισόγειων παραθεριστικών κατοικιών των 50 τμ. συμβατικής κατασκευής low budget στον παραθαλάσσιο οικισμό Προφήτη Ηλία Ροδοπης.',
+        en: 'Study, supervision, construction, Completion of two 50 sq.m. ground-floor holiday homes of conventional low-budget construction in Profitis Ilias coastal settlement, Rodopi.'
+      },
+      images: [groundFloorHolidayHomes, groundFloorHolidayHomes2, groundFloorHolidayHomes3, groundFloorHolidayHomes4, groundFloorHolidayHomes5, groundFloorHolidayHomes6, groundFloorHolidayHomes7]
+    },
+    {
+      title: {
+        el: 'Ανεγερση ισογειας παραθεριστικης μονοκατοικιας στον οικισμο Αρωγης ΠΕ Ροδοπης',
+        en: 'Construction of a ground-floor holiday home in Arogi settlement, Rodopi'
+      },
+      description: {
+        el: 'Ανεγερση ισογειας παραθεριστικης μονοκατοικιας 65 τμ, σε οικοπεδο 220 τμ, στον οικισμο Αρωγης ΠΕ Ροδοπης.',
+        en: 'Construction of a 65 sq.m. ground-floor holiday home on a 220 sq.m. plot in Arogi settlement, Rodopi.'
+      },
+      images: [houseAtArogiRodopi, houseAtArogiRodopi2, houseAtArogiRodopi3, houseAtArogiRodopi4, houseAtArogiRodopi5, houseAtArogiRodopi6, houseAtArogiRodopi7, houseAtArogiRodopi8, houseAtArogiRodopi9, houseAtArogiRodopi10]
     }
   ];
 
